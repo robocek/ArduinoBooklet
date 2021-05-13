@@ -11,6 +11,8 @@
 
 \usepackage{tabularx}
 
+\usepackage{fontawesome5}
+
 \setcounter{secnumdepth}{1}
 
 \usepackage{hyperref}
@@ -22,7 +24,7 @@
 
 \usepackage{enumerate}
 
-%\usepackage{caption}
+\usepackage{caption}
 
 \PassOptionsToPackage{usenames,dvipsnames,svgnames,table}{xcolor}
 \usepackage[table]{xcolor}
@@ -66,6 +68,8 @@
     tabsize=2,
     language=C
 }
+
+\def\ci#1{\textcircled{\resizebox{.5em}{!}{#1}}} 
 
 \newcommand\Tstrut{\rule{0pt}{2.6ex}}       % "top" strut
 \newcommand\Bstrut{\rule[-0.9ex]{0pt}{0pt}} % "bottom" strut
@@ -186,6 +190,12 @@
 %	CHAPTER 7 : Interfacing DTMF
 %----------------------------------------------------------------------------------------
 \include{Chapters/DTMF}
+
+
+%----------------------------------------------------------------------------------------
+%   Conclusion
+%----------------------------------------------------------------------------------------
+\include{conclusion}
 
 \backmatter
 %----------------------------------------------------------------------------------------
