@@ -27,13 +27,31 @@ We can also find three jumper settings on the board. The jumper just above the p
 \label{section:bot_interface}
 
 \par Let us connect the motor driver and Arduino. The driver would be powered up via external supply and Arduino will be powered via USB cable. In this sample connection , lets connect and 10V DC motor to each channels. The next question is, how to control the direction of the motors? Lets consider the channel A. The terminal of the motor is connected to the OUT pins.
-\begin{figure}
+
+\begin{table*}
     \centering
-    \includegraphics{Tables/Motor_Driver/wheel_dir.png}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \textit{\textbf{INPUT 1}} &
+          \textit{\textbf{INPUT2}} &
+          \textit{\textbf{OUT1}} &
+          \textit{\textbf{OUT2}} &
+          \textit{\textbf{Potential difference = OUT1-OUT2}} &
+          \textit{\textbf{Motor direction}} \\ \hline
+        LOW  & LOW  & 0v  & 0v  & 0V   & NULL           \\ \hline
+        LOW  & HIGH & 0v  & 10v & -10V & Anti-clockwise \\ \hline
+        HIGH & LOW  & 10v & 0v  & 10V  & Clockwise      \\ \hline
+        HIGH & HIGH & 10v & 10v & 0V   & NULL           \\ \hline
+    \end{tabular}
+    \vspace{3mm}
     \caption[Wheel potential difference]{The voltage difference experienced at each terminal can effect the rotation of motor}
     \label{fig:wheel_potential}
-\end{figure}
-\par From the table \ref{fig:wheel_potential}, it is clear that by inverting the logical signals, we can change the direction of motor. The same can be applied at the channel B for direction control. Now lets make the connections!
+\end{table*}
+
+
+\par From the table \ref{fig:wheel_potential}, it is clear that by inverting the logical signals, we can change the direction of motor. The same can be applied at the channel B for direction control.
+\par Now lets make the connections!
 
 \begin{figure}
     \centering
@@ -42,7 +60,7 @@ We can also find three jumper settings on the board. The jumper just above the p
     \label{fig:motor_connection}
 \end{figure}
 
-As shown in the figure \ref{fig:motor_connection}, we have connected pins 8, 7, 5, 4 to input1, input2, input3 and input4 respectively. Both the boards shares the common GND and the driver is powered via 12V supply. Let’s write a program that turns the motors clockwise and anti clockwise to control the bot movement. The bot movement are summarized in the table \ref{fig:move1_table}.
+As shown in the figure \ref{fig:motor_connection}, we have connected pins 8, 7, 5, 4 to input1, input2, input3 and input4 respectively. Both the boards shares the common GND and the driver is powered via 12V supply. Let’s write a program that turns the motors clockwise and anti clockwise to control the bot movement. The bot movement are summarized in the table \ref{tab:move1_table}.
 
 \begin{lstlisting}[style=CStyle]
 int m1 = 8, m2 = 7;  //left  motor pins
@@ -104,26 +122,35 @@ void loop(){
 }
 \end{lstlisting}
 
-\begin{figure}
+\begin{table*}
     \centering
-    \includegraphics{Tables/Motor_Driver/bot_movement.png}
+    \renewcommand{\arraystretch}{1.5}
+    \vspace{3mm}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+        \textbf{INPUT1} & \textbf{INPUT2} & \textbf{INPUT3} & \textbf{INPUT4} & \textbf{Left Wheel} & \textbf{Right Wheel} & \textbf{Bot movement} \\ \hline
+        HIGH & LOW & HIGH & LOW & Clockwise & Clockwise & Forward \\ \hline
+        LOW & HIGH & LOW & HIGH & Anti-clockwise & Anti-clockwise & Backward \\ \hline
+        LOW & LOW & HIGH & LOW & Stop & Clockwise & Left (slowly) \\ \hline
+        LOW & HIGH & HIGH & LOW & Anti-clockwise & Clockwise & Left (rapidly) \\ \hline
+        LOW & HIGH & LOW & LOW & Anti-clockwise & Stop & Left (slowly) \\ \hline
+        HIGH & LOW & LOW & LOW & Clockwise & Stop & Right (slowly) \\ \hline
+        HIGH & LOW & LOW & HIGH & Clockwise & Anti-clockwise & Right (rapidly) \\ \hline
+        LOW & LOW & LOW & HIGH & Stop & Anti-clockwise & Right (slowly) \\ \hline
+        LOW & LOW & LOW & LOW & Stop & Stop & Paused \\ \hline
+    \end{tabular}
     \caption{Bot movement}
-    \label{fig:move1_table}
-\end{figure}
+    \label{tab:move1_table}
+    \setfloatalignment{b}
+\end{table*}
+\renewcommand{\arraystretch}{1}
 
 \section{Speed controlled Bot}
 \label{section:speed_controlled_bot}
 
 \par You might have noticed that the bot drifts or becomes unstable when it changes it direction suddenly. This is because the wheels are rotating with higher speed than our bot can handle. The solution to such problems is the control the speed of the wheels. This can be easily achieved by making use of \ac{PWM} pins in the motor driver. Lets try out our new speed controlled bot. It is easy to modify the above circuit and code to build the new bot quickly.
 
-\par Re-configure the circuit by removing the jumper pins of channel A and B. Connect \ac{PWM} pins 9 and 3 of Arduino to channel A and channel B respectively. You can identify \ac{PWM} pins in Arduino by noticing the tilde symbol ( \textasciitilde{} ) on the board. The new circuit looks like figure \ref{fig:speed_controlled}. Modify the program for the new connection.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=3.8in]{Images/Motor_Driver/speed_bot.png}
-    \caption{PWM supported wheel control}
-    \label{fig:speed_controlled}
-\end{figure}
+\paragraph{ } Re-configure the circuit by removing the jumper pins of channel A and B. Connect \ac{PWM} pins 9 and 3 of Arduino to channel A and channel B respectively. You can identify \ac{PWM} pins in Arduino by noticing the tilde symbol ( \textasciitilde{} ) on the board. The new circuit looks like figure \ref{fig:speed_controlled}. Modify the program for the new connection.
 
 \begin{lstlisting}[style=CStyle]
 int pwmL= 9, m1= 8, m2= 7;  //left  motor pins
@@ -176,14 +203,31 @@ void loop(){
 }
 \end{lstlisting}
 
-\par Keep in mind that \ac{PWM} pins are 8-bit support pins. The Maximum analog value we can send is 255 i.e., $ 2^8 - 1 $ (counting starts from zero). If \ac{PWM} value is set to 255, the motors will run at full capacity and would decrease as the value decreases. Do note that you are controlling the effective voltage sent to the motor and not the actual wheel rotation. To control the rotation of the wheel precisely, we would have to make use of stepper motors. Table \ref{fig:motor_volt} show the effective voltage felt at the motors. \pagebreak
-
 \begin{figure}
     \centering
-    \includegraphics{Tables/Motor_Driver/motor_voltage.png}
+    \includegraphics[width=\textwidth]{Images/Motor_Driver/speed_bot.png}
+    \caption{PWM supported wheel control}
+    \label{fig:speed_controlled}
+\end{figure}
+
+Keep in mind that \ac{PWM} pins are 8-bit support pins. The Maximum analog value we can send is 255 i.e., $ 2^8 - 1 $ (counting starts from zero). If \ac{PWM} value is set to 255, the motors will run at full capacity and would decrease as the value decreases. Do note that you are controlling the effective voltage sent to the motor and not the actual wheel rotation. To control the rotation of the wheel precisely, we would have to make use of stepper motors. Table \ref{fig:motor_volt} show the effective voltage felt at the motors. %\pagebreak
+
+
+\begin{table}
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|c|c|c|}
+    \hline
+        \textbf{PWM value} & \textbf{Pulse width \%} & \textbf{Effective voltage at 10V motor} \\ \hline
+        255 & 255/255 = 100.0\% & 100.0\% * 10V = 10.0V \\ \hline
+        150 & 150/255 = 58.82\% & 58.82\% * 10V = 5.88V \\ \hline
+        127 & 127/255 = 49.80\% & 49.80\% * 10V = 4.98V \\ \hline
+        75 & 75/255 = 29.41\% & 29.41\% * 10V = 2.94V \\ \hline
+    \end{tabular}
     \caption[Voltage at motors]{Voltage experienced by the motors is in accordance with the effective voltage given by \ac{PWM} pins}
     \label{fig:motor_volt}
-\end{figure}
+\end{table}
+\renewcommand{\arraystretch}{1}
 
 Try connecting few sensors like Ultrasonic sensors, \ac{IR} sensor, \ac{LDR}, Accelerometer etc to make your bot autonomous and attractive!
 \begin{figure}

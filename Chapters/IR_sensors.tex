@@ -2,7 +2,7 @@
 \label{ch:ir-sensors}
 %------------------------------------------------
 
-\ac{IR} stands for Infrared Radiation, is an \ac{EMR} with wavelengths longer than those of visible light. Discovered in 1800 by astronomer Sir William Herschel, \ac{IR} is a region of the \ac{EMR} spectrum where wavelengths range from about 700 nanometers (nm) to 1 millimeter (mm). They are longer than those of visible light, but shorter than those of radio waves. As they do not fall under the visible spectrum, they remain invisible to human eye. Certain animals and cameras can pick up those radiation to perceive them as images.
+\ac{IR} stands for Infrared Radiation, is an \ac{EMR} with wavelengths longer than those of visible light. Discovered in 1800 by astronomer Sir William Herschel, \ac{IR} is a region of the \ac{EMR} spectrum where wavelengths range from about 700 nanometers (nm) to 1 millimeter (mm). They are longer than those of visible light, but shorter than those of radio waves. As they do not fall under the visible spectrum, they remain invisible to human eye. Certain animals and cameras can pick up those radiation and perceive them as images.
 
 \begin{figure}
     \centering
@@ -10,7 +10,7 @@
 	\caption{Infrared Spectrum}
 \end{figure}
 
-Based on their range of wave lengths, \ac{IR} can be further classified into three regions. The Near Infrared regions spans from 700nm to 1400nm and is widely used in most of the \ac{IR} sensors and fibre optics. The Mid infrared region spans from 1400nm to 300nm and is mainly used in heat sensing applications. The Far infrared region that spans from 3000nm to 1mm is majorly used in thermal imaging. These different region are effectively used to build various application like night vision devices, infrared astronomy, infrared missile tracking etc.
+Based on their range of wave lengths, \ac{IR} can be further classified into three regions. The Near Infrared regions spans from 700nm to 1400nm and is widely used in most of the \ac{IR} sensors and fibre optics. The Mid infrared region spans from 1400nm to 300nm and is mainly used in heat sensing applications. The Far infrared region that spans from 300nm to 1mm is majorly used in thermal imaging. These different region are effectively used to build various application like night vision devices, infrared astronomy, infrared missile tracking etc.
 
 %------------------------------------------------
 
@@ -18,7 +18,7 @@ Based on their range of wave lengths, \ac{IR} can be further classified into thr
 \par There are various \ac{IR} sensors available in the market. Based on their configuration, we can classify them as Active \ac{IR} sensors and \ac{PIR} sensor . Active \ac{IR} sensors are those sensor capable of both producing and sensing \ac{IR} signals while \ac{PIR} sensors mainly consist of detectors. Most of the motion detectors make use of \ac{PIR}. The \ac{PIR} detects the \ac{IR} signals caused due to the heat energy transmitted by any object. In this chapter we would focus on Active \ac{IR} sensor.
 
 \section{Active \ac{IR} Sensors}
-\par An active \ac{IR} sensor consist of both \ac{IR} transmitter and \ac{IR} receiver. The transmitter transmits the \ac{IR} signals which would strike on an object and would bounce back to the receiver. However not all signals are bounced from the surface of the object. The bouncing of signals depends on the colour and material of the object. The dark colors have the ability to absorb more energy and transmit only a small portion of the received light. Light colors on the other hand reflects most of the received light signals. It is this change of deflection of light that gives us the perception for colors. Since \ac{IR} sensor is only capable of detecting the presence/absence of \ac{IR} signals, they are employed to detect bright/dark surfaces. An \ac{IR} sensor is not capable of differentiating various colors.
+\par An active \ac{IR} sensor consist of both \ac{IR} transmitter and \ac{IR} receiver. The transmitter transmits the \ac{IR} signals which would strike on an object and would bounce back to the receiver. However not all signals are bounced from the surface of the object. The bouncing of signals depends on the colour and material of the object. The dark colors have the ability to absorb more energy and transmit only a small portion of the received light. Light colors on the other hand, reflects most of the received light signals. It is this change of deflection of light that gives us the perception for colors. Since \ac{IR} sensor is only capable of detecting the presence/absence of \ac{IR} signals, they are employed to detect bright/dark surfaces. An \ac{IR} sensor is not capable of differentiating various colors.
 
 \begin{figure}
 	\centering
@@ -54,7 +54,7 @@ Now lets talk about the component required for a complete Active \ac{IR} sensor.
 	\setfloatalignment{b}
 \end{figure}
 
- Now lets talk about the pins on the board. FC-51 have three legs for interfacing with Arduino. Each legs have there associated marking on the board to indicate what that leg is used for. The VCC pin indicates the power in for the board. The 5v supply from micro-controller is connected to the VCC and the ground (GND) of the board is connected to the GND pin of micro-controller. The OUT pin of the board would act as the input for the Arduino. The OUT pin gives out 5V upon detecting a bright surface and 0V upon detecting a dark surface. There do exist inverted boards that just detects the opposite! So keep in mind to check board you have before you start coding. 
+ Now lets talk about the pins on the board. FC-51 have three legs for interfacing with Arduino. Each legs have there associated marking on the board to indicate what that leg is used for. The VCC pin indicates the power in for the board. The 5v supply from micro-controller is connected to the VCC and the ground (GND) of the board is connected to the GND pin of micro-controller. The OUT pin of the board would act as the input for the Arduino. The OUT pin gives out 5V upon detecting a bright surface and 0V upon detecting a dark surface. There do exist inverted boards that just detects the opposite! ( see table \ref{tab:inverted}) So keep in mind to check board you have before you start coding. 
 
 \begin{table}
     \centering
@@ -68,6 +68,7 @@ Now lets talk about the component required for a complete Active \ac{IR} sensor.
     \hline
     \end{tabular}
     \caption{Inverted and Non-inverted IR boards}
+    \label{tab:inverted}
 \end{table}
 
 \hspace{0.5cm}
@@ -163,37 +164,41 @@ The main event of the line follower is to trace the line. In our sample environm
      \caption[Line Follower Sensor]{Line follower sensor alignment}
 \end{marginfigure}
 
-Table \ref{fig:line_follower_move} have listed all sort of possible combinations with 2 \ac{IR} sensors. Now lets implement them in our bot. Take a quick peek at the section \ref{section:bot_interface} where we have programmed a small bot. Lets add the additional \ac{IR} sensors to them to complete our line follower.
+Table \ref{tab:line_follower_move} have listed all sort of possible combinations with 2 \ac{IR} sensors. Now lets implement them in our bot. Take a quick peek at the section \ref{section:bot_interface} where we have programmed a small bot. Lets add the additional \ac{IR} sensors to them to complete our line follower.
 
-% \begin{table}
-%     \centering
-%     \begin{tabular}{|c|c|c|c|c|}
-%     \hline
-%     \textbf{\hspace{0.2cm}Path Property\hspace{0.2cm}} & \textbf{\hspace{0.2cm} Left \ac{IR}\hspace{0.2cm} }& \textbf{\hspace{0.4cm}Right \ac{IR}\hspace{0.2cm}} & 
-%     \textbf{\hspace{0.2cm}Reaction of the bot\hspace{0.2cm}} &
-%     \textbf{\hspace{0.2cm}Scenario\hspace{0.2cm}}\\
-%     \hline
-%     Straight path & HIGH (white) & HIGH (white) & Forward motion &
-%     \parbox[c]{6em}{    \includegraphics[width=0.8\textwidth,height=20mm]{Chapters/images/IR_linefollower_straight.png}} \TBstrut \\
-%     \hline
-%     Makes a right curve & HIGH (white) & LOW (black) & Turn right &
-%     \parbox[c]{6em}{    \includegraphics[width=0.8\textwidth,height=20mm]{Chapters/images/IR_linefollower_right.png}} \TBstrut \\
-%     \hline
-%     Makes a left curve & LOW (black) & HIGH (white) & Turn left &
-%     \parbox[c]{6em}{    \includegraphics[width=0.8\textwidth,height=20mm]{Chapters/images/IR_linefollower_left.png}} \TBstrut \\
-%     \hline
-%     Cross bar & LOW (black) & LOW (black) & Stop &
-%     \parbox[c]{6em}{    \includegraphics[width=0.8\textwidth,height=20mm]{Chapters/images/IR_linefollower_stop.png}} \TBstrut \\
-%     \hline
-%     \end{tabular}
-% \end{table}
-
-\begin{figure}
+\renewcommand{\arraystretch}{3.6}
+\begin{table}
     \centering
-    \includegraphics{Tables/IR Sensor/line_follower_move.png}
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+        \textbf{Path property} & \textbf{Left IR} & \textbf{Right IR} & \textbf{Reaction of the bot} & \textbf{Scenario} \\ \hline
+        Straight path & HIGH (white) & HIGH (white) & Forward motion & \begin{minipage}{.3\textwidth}
+            \centering
+            \includegraphics[width=\linewidth, height=20mm]{Images/IR Sensor/IR_linefollower_straight.png}
+            \vspace{1mm}
+        \end{minipage} \\ \hline
+        Makes a right curve & HIGH (white) & LOW (black) & Turn right & \begin{minipage}{.3\textwidth}
+            \centering
+            \includegraphics[width=\linewidth, height=20mm]{Images/IR Sensor/IR_linefollower_right.png}
+            \vspace{1mm}
+        \end{minipage}  \\ \hline
+        Makes a left curve & LOW (black) & HIGH (white) & Turn left & \begin{minipage}{.3\textwidth}
+            \centering
+            \includegraphics[width=\linewidth, height=20mm]{Images/IR Sensor/IR_linefollower_left.png}
+            \vspace{1mm}
+        \end{minipage}  \\ \hline
+        Cross bar & LOW (black) & LOW (black) & Stop & \begin{minipage}{.3\textwidth}
+            \centering
+            \includegraphics[width=\linewidth, height=20mm]{Images/IR Sensor/IR_linefollower_stop.png}
+            \vspace{1mm}
+        \end{minipage}  \\ \hline
+    \end{tabular}
+    \setfloatalignment{b}
+    \vspace{9mm}
     \caption{Line follower movement}
-    \label{fig:line_follower_move}
-\end{figure}
+    \label{tab:line_follower_move}
+\end{table}
+\renewcommand{\arraystretch}{1}
 
 \begin{figure}
     \centering
@@ -202,7 +207,7 @@ Table \ref{fig:line_follower_move} have listed all sort of possible combinations
      \label{fig:ir_bot}
 \end{figure}
 
-\par Lets detail the connection of the circuit show in figure \ref{fig:ir_bot}. The VCC and GND of \ac{IR} sensors are connected to 5V and GND of Arduino. The left \ac{IR} sensor (bottom) gives its output to 11th pin of Arduino while the right \ac{IR} sensor (top) gives its output to 6th pin of Arduino. The GND of motor driver is connected to the GND of Arduino and input1, input2, input3, input4 of driver are connected to pins 8, 7, 5, 4 pins of Arduino respectively. Left motor is connected to the channel A and right motor is connected to channel B of the motor driver. Finally we powered the driver using a 12v adapter and connected the GND of driver and Arduino to it. Now lets implement the logic depicted on the table \ref{fig:line_follower_move}.
+\par Lets detail the connection of the circuit show in figure \ref{fig:ir_bot}. The VCC and GND of \ac{IR} sensors are connected to 5V and GND of Arduino. The left \ac{IR} sensor (bottom) gives its output to 11th pin of Arduino while the right \ac{IR} sensor (top) gives its output to 6th pin of Arduino. The GND of motor driver is connected to the GND of Arduino and input1, input2, input3, input4 of driver are connected to pins 8, 7, 5, 4 pins of Arduino respectively. Left motor is connected to the channel A and right motor is connected to channel B of the motor driver. Finally we powered the driver using a 12v adapter and connected the GND of driver and Arduino to it. Now lets implement the logic depicted on the table \ref{tab:line_follower_move}.
 
 \begin{lstlisting}[style=CStyle]
 int m1 = 8, m2 = 7;    //left  motor pins
@@ -265,7 +270,7 @@ void loop(){
 
 \par You might have noticed that the bot drifts or becomes unstable when it changes it direction suddenly. This is because the wheels are rotating with higher speed than our bot can handle. The solution to such problems is the control the speed of the wheels. Refer the section \ref{section:speed_controlled_bot} to build speed controlled bot. You may also find that bot travels in a zig-zag fashion, the curves are not covered smoothly or the bot may miss some sharp curves. To avoid such problems, line followers are build using an \ac{IR} array, where there are more sensors to detect the intensity of curves etc. 
 
-\par Line follower is one of the popular projects in Arduino-ROBOTICS. Various competitions are held across the world with varying difficulty and challenges. Maze solver is one of the most common event held. Speed, accuracy and reliability of bots are noted to announce the winner. To improve the probability of bagging the price, various statistical theories, mathematical models are applied and coded into the programs. Here we have detailed the basics of line follower. The rest is left to you to explore!
+\paragraph{ } Line follower is one of the popular projects in Arduino-ROBOTICS. Various competitions are held across the world with varying difficulty and challenges. Maze solver is one of the most common event held. Speed, accuracy and reliability of bots are noted to announce the winner. To improve the probability of bagging the price, various statistical theories, mathematical models are applied and coded into the programs. Here we have detailed the basics of line follower. The rest is left to you to explore!
 
 \begin{figure}
     \centering

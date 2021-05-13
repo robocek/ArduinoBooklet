@@ -24,6 +24,11 @@
 
 %\usepackage{caption}
 
+\PassOptionsToPackage{usenames,dvipsnames,svgnames,table}{xcolor}
+\usepackage[table]{xcolor}
+
+\usepackage{colortbl}
+\definecolor{lightgray}{gray}{0.9}
 
 \usepackage[export]{adjustbox}
 \usepackage{booktabs} % Better horizontal rules in tables
@@ -151,7 +156,7 @@
 %----------------------------------------------------------------------------------------
 %	CHAPTER 1 : Introduction to Robotics
 %----------------------------------------------------------------------------------------
-\include{Chapters/Introduciton_to_Robotics}
+\include{Chapters/Introduction_to_Robotics}
 
 %----------------------------------------------------------------------------------------
 %	CHAPTER 2 : Introducing to Arduino
@@ -184,7 +189,5 @@
 
 \backmatter
 %----------------------------------------------------------------------------------------
-
-\printindex % Print the index at the very end of the document
 
 \end{document}

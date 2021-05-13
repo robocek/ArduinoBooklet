@@ -11,10 +11,11 @@
 \section{Arduino IDE}
 
 
-\par \ac{IDE} contains necessary tools required to write, compile and upload our code (sketch) to Arduino. It is a open source, cross-platform application that is written in Java. It supplies a software library which provides many common input and output procedures. There are various form of Arduino \ac{IDE} - Arduino \ac{IDE} software (windwos, linux, mac systems), Arduino Web \ac{IDE} (runs on web browser), Arduinroid ( Andriod App ) can be used to upload our sketch.
+\par \ac{IDE} contains necessary tools required to write, compile and upload our code (sketch) to Arduino. It is a open source, cross-platform application that is written in Java. It supplies a software library which provides many common input and output procedures. There are various form of Arduino \ac{IDE} - Arduino \ac{IDE} software (windwos, linux, mac systems), Arduino Web \ac{IDE} (runs on web browser), Arduinroid ( Andriod App ) that can be used to upload our sketch.
 
 \begin{marginfigure}
     \vspace{-4cm} \includegraphics{Images/Programing_Arduino/IDE_interface.png}
+    \caption{Arduino IDE}
 \end{marginfigure}
 
 \subsection{Parts of Arduino IDE}
@@ -50,7 +51,7 @@
     Shortcut : Ctrl + R
     
     \begin{marginfigure}
-        \hspace{-4cm}\includegraphics[width=2.5in]{Images/Programing_Arduino/quick_tool.png}
+        \hspace{-4cm}\includegraphics[width=3in]{Images/Programing_Arduino/quick_tool.png}
     \end{marginfigure}
     
     \item Upload\\
@@ -70,7 +71,7 @@
 \end{enumerate}
 
 \section{Programming language for Arduino}
-The official language for Arduino development is using the C/C++ programming language. C language is best known for its speed and close relationship with memory. C language can effectively make the most out of a given hardware optimally. The support for other programming languages is also being developed. Python language is gaining its support in Arduino. Take a look at \url{https://realpython.com/arduino-python/} to get started. Those who find difficulty in learning language, there are block codes available. It uses simple GUI to drag and drop various code block segments that are joined together to from a program. The automatically generated code can then be uploaded to Arduino. Take a look at \url{https://www.postscapes.com/iot-visual-programming-tools/} to get started. It would be best to write programs in C to get a clear understanding of the hardware and the program.
+The official language for Arduino development is using the C/C++ programming language. C language is best known for its speed and close relationship with memory. C language can effectively make the most out of a given hardware optimally. The support for other programming languages is also being developed. Python language is gaining its support in Arduino. Take a look at \url{https://realpython.com/arduino-python/} to get started. Those who find difficulty in learning language, there are block codes available. It uses simple GUI to drag and drop various code block segments that are joined together to form a program. The automatically generated code can then be uploaded to Arduino. Take a look at \url{https://www.postscapes.com/iot-visual-programming-tools/} to get started. It would be best to write programs in C to get a clear understanding of the hardware and the program.
 
 \begin{figure}
     \centering
@@ -84,27 +85,29 @@ The official language for Arduino development is using the C/C++ programming lan
     \item Data types \\
     Data types refers to the type of value we deal with. There are various types of data in C. They include characters, integers, decimal numbers etc. Each data occupy specific space in the memory to store and process those information Table \ref{tab:datatypes} shows few commonly used C data types and their memory consumption.
     
-    \renewcommand{\arraystretch}{2}
-    \begin{table}
-    \centering
-    \begin{tabular}{|l|l|l|l|l|}
-    \hline
-        Data type & What value does it hold & Example & \multicolumn{2}{c|}{Memory Space} \\ \hline
-        char & Single characters & 'a', 'b', 'Q', '1' & 1 byte & 8 bit \\ \hline
-        int & Integer numbers with no decimal parts & -32768 to 32767 & 2 byte & 16 bit \\ \hline
-        long int & Same as int type, with longer precision & 2147483, 647885425 & 4 byte & 32 bit \\ \hline
-        float & Number with decimal point & 2.312, 2.2258 etc & 4 byte & 32 bit \\ \hline
-        double & Same as float, with longer precision & 2.59874, 69.88524589 & 8 byte & 64 bit \\ \hline
-        long double & Same as double, with longer precision & 658.8885421, 9986.22104 & 10 byte & 80 bit \\ \hline
-    \end{tabular}
-    \label{datatypes}
-    \vspace{5mm}
-    \caption{Datatypes in C}
-    \label{tab:datatypes}
-    \setfloatalignment{b}
-\end{table}
-\renewcommand{\arraystretch}{1}
-
+    
+    \begin{table*}
+        \renewcommand{\arraystretch}{1.5}
+        \resizebox{\textwidth}{!}{%
+            \begin{tabular}{|l|l|l|l|l|}
+            \hline
+            \multicolumn{1}{|c|}{\textit{\textbf{Data type}}} &
+              \multicolumn{1}{c|}{\textit{\textbf{What value does it hold}}} &
+              \multicolumn{1}{c|}{\textit{\textbf{Example}}} &
+              \multicolumn{2}{c|}{\textit{\textbf{Memory Space}}} \\ \hline
+            char        & Single characters                       & ‘a’, ‘b’, ‘Q’, ‘1’      & 1 byte  & 8 bit  \\ \hline
+            int         & Integer numbers with no decimal parts   & -32768 to 32767         & 2 byte  & 16 bit \\ \hline
+            long int    & Same as int type, with longer precision & 2147483, 647885425      & 4 byte  & 32 bit \\ \hline
+            float       & Number with decimal point               & 2.312, 2.2258 etc       & 4 byte  & 32 bit \\ \hline
+            double      & Same as float, with longer precision    & 2.59874, 69.88524589    & 8 byte  & 64 bit \\ \hline
+            long double & Same as double, with longer precision   & 658.8885421, 9986.22104 & 10 byte & 80 bit \\ \hline
+        \end{tabular}%
+        }
+        \vspace{3mm}
+        \caption{Datatypes in C}
+        \label{tab:datatypes}
+    \end{table*}
+    
     \item Variables \\
     Data are stored in specific memory location. These memory location names are difficult to handle. Hence we name those locations for easy access. These names are called as variables. They simply refers to a named storage location in the memory.\\
     General syntax : 
@@ -121,10 +124,10 @@ The official language for Arduino development is using the C/C++ programming lan
     It refers to an instruction that instructs to do a specific task. In C language, statements are ended with semicolon( ; ) There are different types of statements. Some of them are conditional statement, iteration statements, jump statements.
     
     \item Functions \\
-    They refers to a group/set of instructions referenced under one name. They increase program readability and is easy to extend a feature or find errors. We can pass value to a function - called parameters. We are free to define our own functions. Certain functions are defined by the system and are reserved.
+    They refers to a group/set of instructions referenced under one name. They increase program readability and is easy to extend a feature or find errors. We can pass value to a function - called parameters. We are free to define our own functions. However, certain functions are defined by the system and are reserved.
     
     \item Conditional statements \\
-    These statements direct the control of the program execution based on some conditions.\\
+    These statements directs the control of the program execution based on some conditions.\\
     General syntax:
     \begin{lstlisting}[style=CStyle]
         if( condition ) 
@@ -138,7 +141,7 @@ The official language for Arduino development is using the C/C++ programming lan
     \end{lstlisting}
     
     \item Looping statements \\
-    These statements executes a set of statements until some condition holds true. There three types of loops, they are for loops and while loops and do while loops \\
+    These statements executes a set of statements until some condition holds true. There are three types of loops, namely - for loops, while loops and do while loops \\
     General syntax - for loop :
     \begin{lstlisting}[style=CStyle]
         for(initialization ; condition ; updation) 
@@ -159,69 +162,67 @@ The official language for Arduino development is using the C/C++ programming lan
         Statements to be executed
     }while (condition);
     \end{lstlisting}
-    
-    \item Arithmetic operators
-    \renewcommand{\arraystretch}{2}
-    \begin{table}
-    \centering
-    \begin{tabular}{|l|l|}
-    \hline
-        Symbol & Meaning \\ \hline
-        + & Addition \\ \hline
-        - & Subtraction \\ \hline
-        / & Division \\ \hline
-        * & Multiplication \\ \hline
-        \% & Modulus -> returns the remainder \\ \hline
-        ++ & Unary addition -> adds by one \\ \hline
-        -- & Unary subtraction -> subtracts by one \\ \hline
-    \end{tabular}
-     \caption{Datatypes}
-    \label{datatypes}
-    \setfloatalignment{b}
-\end{table}
 
-    \item Comparison operators
-    \begin{table}
-    \centering
-    \caption{Datatypes}
-    \begin{tabular}{|l|l|}
-    \hline
-        Symbol & Meaning \\ \hline
-        > & Greater than \\ \hline
-        < & Less than \\ \hline
-        >= & Greater than or equal to \\ \hline
-        <= & Less than or equal to \\ \hline
-        == & Both are equal? \\ \hline
-    \end{tabular}
-    \label{Comparision}
-    \setfloatalignment{b}
-\end{table}
     
+    \item Arithmetic - Comparison - Logical operators\\
+    Operators gives us the power to manipulate various data. Table \ref{tab:arithmetic} shows the available operators that can be used with numbers. Table \ref{tab:comparision} shows various comparison operators that can be used make decisions. At times, we would require more than one conditions to be satisfied. Table \ref{tab:logical} show how we can club different conditions to create single decision.
     
-    \item Logical operators
     \begin{table}
-    \centering
-    \begin{tabular}{|l|l|l|}
-    \hline
-        Symbol & Name & Meaning \\ \hline
-        <condition> \&\& <condition> & AND & True if both conditions are True \\ \hline
-        <condition> || <condition> & OR & True if any of the conditions are True \\ \hline
-        ! <condition> & NOT & True if condition is false \\ \hline
-    \end{tabular}
-    \caption{Datatypes}
-    \label{datatypes}
-    \setfloatalignment{b}
-\end{table}
-
+        \centering
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{|c|l|}
+            \hline
+            \textit{\textbf{Symbol}} & \multicolumn{1}{c|}{\textit{\textbf{Meaning}}}   \\ \hline
+            +                        & Addition                                         \\ \hline
+            -                        & Subtraction                                      \\ \hline
+            /                        & Division                                         \\ \hline
+            *                        & Multiplication                                   \\ \hline
+            \%                       & Modulus -\textgreater returns the remainder      \\ \hline
+            ++                       & Unary addition -\textgreater adds by one         \\ \hline
+            --                       & Unary subtraction -\textgreater subtracts by one \\ \hline
+        \end{tabular}
+        \caption{Arithmetic Operators}
+        \label{tab:arithmetic}
+    \end{table}
+    
+    \begin{table}
+        \centering
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{|c|c|}
+        \hline
+            \textit{\textbf{Symbol}} & \textit{\textbf{Meaning}} \\ \hline
+            > & Greater than \\ \hline
+            < & Less than \\ \hline
+            >= & Greater than or equal to \\ \hline
+            <= & Less than or equal to \\ \hline
+            == & Both are equal? \\ \hline
+        \end{tabular}
+        \caption{Comparison Operators}
+        \label{tab:comparision}
+    \end{table}
+    
+    \begin{table*}
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{|c|c|l|}
+            \hline
+            \textit{\textbf{Symbol}}                                                 & \textit{\textbf{Name}} & \multicolumn{1}{c|}{\textit{\textbf{Meaning}}} \\ \hline
+            \textless{}condition\textgreater \&\& \textless{}condition\textgreater{} & AND                    & True if both conditions are True               \\ \hline
+            \textless{}condition\textgreater || \textless{}condition\textgreater{}   & OR                     & True if any of the conditions are True         \\ \hline
+            ! \textless{}condition\textgreater{} & NOT & True if condition is false \\ \hline
+        \end{tabular}
+        \vspace{3mm}
+        \caption{Logical Operators}
+        \label{tab:logical}
+    \end{table*}
 
 \end{itemize}
 
 \subsection{Arduino specific functions and usages}
-\par Arduino have a bunch of functions that are used by the Arduino board for its functioning. Below are few of the commonly used functions. Additional function and their usages can be found at \url{https://www.arduino.cc/reference/en/}\\
+\par Arduino have a bunch of functions that are used by the Arduino board for its functioning. Below are few of the commonly used functions. Additional function and their usages can be found at \url{https://www.arduino.cc/reference/en/}
 
 \begin{itemize}
     \item void setup()\\
-    This is an unavoidable function. The statements written in this function are executed exactly once. Whenever Arduino starts ( or reset button was pressed) the program execution starts from this function. Usually the declaration part and other configuration are written here, that needs to be executed only once. After its execution, it automatically calls the void loop() function.
+    This is an unavoidable function. The statements written in this function are executed exactly once. Whenever Arduino starts ( or reset button is pressed) the program execution starts from this function. Usually the declaration part and other configuration are written here, that needs to be executed only once. After its execution, it automatically calls the void loop() function.
     
     \item void loop()\\
     This is an unavoidable function. The statements written in this function are executed again and again. This part consist of the core part of the program. Statements like monitoring a sensor, reading pins etc are written here. The Arduino never stops its execution. On reaching the end of loop(), it would execute the same function again.
@@ -292,21 +293,20 @@ The official language for Arduino development is using the C/C++ programming lan
     \item analogRead()\\
     This function is used to read the analog values analog pin configured as INPUT mode. Analog pin varies from A0 to A5. The analog to digital converter (ADC) maps the voltage at the input pin into a 10 bit number. Table \ref{tab:analog_in_mapping} summarizes the voltage to value mapping of the function.
     
-\begin{table}
-    \centering
-    \caption{Digital to Analog mapping}
-    \begin{tabular}{|l|l|}
-    \hline
-        Voltage at analog input pin & 10bit value returned \\ \hline
-        0V & 0 \\ \hline
-        1V & 205 \\ \hline
-        2.5V & 512 \\ \hline
-        5V & 1023 \\ \hline
-    \end{tabular}
-    \label{tab:analog_out_mapping}
-    \setfloatalignment{b}
-\end{table}
-    
+    \begin{table}
+        \centering
+        \begin{tabular}{|c|c|}
+            \hline
+            \multicolumn{1}{|l|}{\textit{\textbf{Voltage at analog input pin}}} & \multicolumn{1}{l|}{\textit{\textbf{10bit value returned}}} \\ \hline
+            0V   & 0    \\ \hline
+            1V   & 205  \\ \hline
+            2.5V & 512  \\ \hline
+            5V   & 1023 \\ \hline
+        \end{tabular}
+        \caption{Analog to Digital mapping}
+        \label{tab:analog_in_mapping}
+    \end{table}
+    \vspace{3mm}
     General syntax:
      \begin{lstlisting}[style=CStyle]
         value = analogRead(<pin number>);
@@ -318,22 +318,22 @@ The official language for Arduino development is using the C/C++ programming lan
     \end{lstlisting}
 
     \item analogWrite()\\
-    This function is used to produce analog output values at the \ac{PWM} pins configured as OUTPUT mode. \ac{PWM} supported pins in Arduino Uno are 3, 5, 6, 9, 10, 11. The \ac{PWM} technique maps the 8bit numbers to 5V voltage output. Table \ref{fig:analog_out_mapping} summarizes the functions.
+    This function is used to produce analog output values at the \ac{PWM} pins configured as OUTPUT mode. \ac{PWM} supported pins in Arduino Uno are 3, 5, 6, 9, 10, 11. The \ac{PWM} technique maps the 8bit numbers to 5V voltage output. Table \ref{tab:analog_out_mapping} summarizes the functions.
     
     \begin{table}
-    \centering
-    \caption{Analog to Output Mapping}
-    \begin{tabular}{|l|l|l|}
-    \hline
-        Value passed & Duty cycle & Voltage experienced \\ \hline
-        0 & 0 \% & 0V \\ \hline
-        50 & 19.92\% & 0.99V \\ \hline
-        127 & 50\% & 2.5V \\ \hline
-        255 & 100\% & 5V \\ \hline
-    \end{tabular}
-    \label{fig:analog_out_mapping}
-    \setfloatalignment{b}
-\end{table}
+        \centering
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \textit{\textbf{Value passed}} & \textit{\textbf{Duty cycle}} & \textit{\textbf{Voltage experienced}} \\ \hline
+            0   & 0 \%    & 0V    \\ \hline
+            50  & 19.92\% & 0.99V \\ \hline
+            127 & 50\%    & 2.5V  \\ \hline
+            255 & 100\%   & 5V    \\ \hline
+        \end{tabular}
+        \caption{Digital to Analog Mapping}
+        \label{tab:analog_out_mapping}
+    \end{table}
+    \vspace{3mm}
     
     General syntax:
      \begin{lstlisting}[style=CStyle]
@@ -367,6 +367,10 @@ The official language for Arduino development is using the C/C++ programming lan
         delayMicroseconds(10);  //pauses for 10 microsecond
     \end{lstlisting}
 \end{itemize}
+
+\vspace{1cm}
+
+There are a lot of additional functions defined for Arduino Development. Furthermore, developers around the world have contributed various additional methods to facilitate easy development. These works are compiled into small library, whose codes are made public. These libraries can be easily downloaded and made available via library manager in Arduino \ac{IDE}. Additional methods are also written for various types of Arduino boards. 
 
 \newpage
 \section{Example Programs}
