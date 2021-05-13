@@ -324,7 +324,7 @@
     bookmarksdepth = section,
     citecolor = DarkGreen,
     linkcolor = DarkBlue,
-    pagecolor = DarkBlue,
+    %pagecolor = DarkBlue,
     urlcolor = DarkGreen,
   }%
 }
