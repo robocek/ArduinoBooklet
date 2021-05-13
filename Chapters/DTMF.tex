@@ -14,12 +14,30 @@
 
 \par The keypad is given a fixed set of pure tone ( pure sine wave ) that generates an audio of that particular frequency. This audio is analyzed at the switching centers and telephone equipment and decoded back to detect the key pressed. The keypad grid is divided into two groups of audio frequency ranges, The Row (Low group) frequencies and The Column (High group) frequencies. Whenever a key is pressed, corresponding mixture of audio are generated and transmitted via telephone line. Table ~\ref{fig:keypad} depicts how the frequency are distributed between rows and column.
 
-\begin{figure}
+\renewcommand{\arraystretch}{2.5}
+\begin{table}
     \centering
-    \includegraphics[width=4in]{Tables/DTMF/keypad_frequency.png}
-    \caption[Keypad frequency]{ Each key generates unique combination of frequency}
+    \begin{tabular}{|m{3em}|l|l|l|l|l|}
+    \hline
+         & \multicolumn{5}{c|}{Column(High Group) Frequencies}\\ \cline{2-6}
+         &  & 1209 Hz & 1336Hz & 1477Hz & 1633Hz \\ \hline
+        \multirow{4}{*}{\hspace{1.2mm} \rotatebox[origin=c]{90}{Row(Low Group)Frequencies}} & 697 Hz & 1 & 2 & 3 & A \\ \cline{2-6}
+         & 770 Hz & 4 & 5 & 6 & B \\ \cline{2-6}
+         & 852 Hz & 7 & 8 & 9 & C \\ \cline{2-6}
+         & 941Hz & * & 0 & \# & D \\ \hline
+    \end{tabular}
+    \vspace{10mm}
+    \caption[Keypad frequency]{Each key generates unique combination of frequency}
     \label{fig:keypad}
-\end{figure}
+    \setfloatalignment{b}
+\end{table}
+
+%\begin{figure}
+%    \centering
+%    \includegraphics[width=4in]{Tables/DTMF/keypad_frequency.png}
+%    \caption[Keypad frequency]{Each key generates unique combination of %frequency}
+%    \label{fig:keypad}
+%\end{figure}
 
 \par For example if the customer presses 8 , audio of frequency 2188Hz (1336+852) is generated and transmitted via telephone line. At the receiving center, they are passed through a decoder to generate the key value 8.
 

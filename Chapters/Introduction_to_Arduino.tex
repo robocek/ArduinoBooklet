@@ -38,130 +38,154 @@
     \centering
     \subfloat[Arduino Uno R3]{
         \label{fig : arduino_uno_r3 } 
-        \includegraphics[width=1.9in]{Images/Intro_Arduino/arduino_community.png}
+        \includegraphics[width=2in]{Images/Intro_Arduino/arduino_uno.png}
     }
     \subfloat[Raspberry Pi 2 Model B]{
         \label{fig : raspberry_pi_2}
-        \includegraphics[width=2.1in]{Images/Intro_Arduino/raspberry.png}
+        \includegraphics[width=2in]{Images/Intro_Arduino/raspberry.png}
     }
     \caption{Development boards}
 \end{figure}
 
 \section{Micro-controllers and Micro-processors}
 \par Micro-controllers and Micro-processors are common terms used in \ac{IoT} and embedded systems. It is worth a while to understand the difference between them, to choose which is better to our project need.
-\par Micro-controllers and micro-processors are used to execute instructions and control various units interfaced with them. However their complexity and utility can vary greatly. Micro controllers are similar to a small computer fabricated into a single \ac{IC} . It contains a processor core, ROM, RAM, and I/O pins It does not need any external circuits to do its task. It can manage memory and other services its own. It does the job of managing units as well an performing calculations. Micro-processor, on the other hand, has only CPU inside them. It does not have RAM, ROM of its own. Processors are dedicated to perform calculations. They depend on external circuits for its peripheral like RAM, ROM to work. They are used where the task are complex and tricky. Lets summarize features.
+\par Micro-controllers and micro-processors are used to execute instructions and control various units interfaced with them. However their complexity and utility can vary greatly. Micro controllers are similar to a small computer fabricated into a single \ac{IC} . It contains a processor core, ROM, RAM, and I/O pins It does not need any external circuits to do its task. It can manage memory and other services its own. It does the job of managing units as well an performing calculations. Micro-processor, on the other hand, has only CPU inside them. It does not have RAM, ROM of its own. Processors are dedicated to perform calculations. They depend on external circuits for its peripheral like RAM, ROM to work. They are used where the task are complex and tricky. The features are summarized in table \ref{fig:compare_micro_proc}.
 
-\begin{figure}[htp]
-  \centering
-  \label{figure}
-  \caption{Processor and Controller}
-  \subfloat[Microprocessor]{\label{figur:processor}\includegraphics[width=60mm]{Chapters/images/processor.jpeg}}
-  \subfloat[Microcontroller]{\label{figur:controller}\includegraphics[width=60mm]{Chapters/images/microcontroller.jpg}}
-  \setfloatalignment{b}
-\end{figure}
 \begin{figure}
     \centering
-    \includegraphics[width=4in]{Chapters/images/ardtab2.png}
-    \caption{Comparison of Microprocessors and Microcontrollers}
-    \label{fig:my_label}
-     \setfloatalignment{b}
+    \subfloat[Microprocessor]{
+        \includegraphics[width=1.2in]{Images/Intro_Arduino/processor.jpeg}
+    }\qquad
+    \subfloat[Micro-controller]{
+        \includegraphics[width=1.2in]{Images/Intro_Arduino/microcontroller.jpg}
+    }
+    \caption{Processor and Micro-Controllers}
+\end{figure}
+
+\begin{figure}
+    \includegraphics[width=4in]{Tables/Intro_Arduino/compare_ard_proc.png}
+    \caption[Microprocessors VS Micro-controllers]{Comparison of Microprocessors and Micro-controllers}
+    \label{fig:compare_micro_proc}
 \end{figure}
 
 \section{Arduino Boards}
-Arduino is a large community that develops various micro-controller boards. Depending on the project application and usage various customized official boards are available.
-\begin{figure}[htp]
+\par Arduino is a large community that develops various micro-controller boards. Depending on the project application and usage various customized official boards are available.Among various Arduino boards available, the most generally used Arduino board is the “Arduino Uno”. We would be making use of Arduino Uno to develop various projects.
+
+\begin{figure*}
   \centering
-  \label{figure}
-  \caption{Processor and Controller}
-  \subfloat[Arduino Due]{\label{figur:processor}\includegraphics[width=50mm]{Chapters/images/ard1.png}}
-  \subfloat[Arduino Leonardo]{\label{figur:controller}\includegraphics[width=50mm]{Chapters/images/ard2.jpg}}\\
-  \subfloat[
-Arduino Uno]{\label{figur:processor}\includegraphics[width=50mm]{Chapters/images/ard3.jpg}}
-  \subfloat[Arduino Mega 2560]{\label{figur:controller}\includegraphics[width=50mm]{Chapters/images/ard4.jpg}}\\
-  \subfloat[Arduino Nano]{\label{figur:processor}\includegraphics[width=50mm]{Chapters/images/ard5.jpg}}
-  \subfloat[LillyPad Arduino]{\label{figur:controller}\includegraphics[width=50mm]{Chapters/images/ard6.jpg}}
-  \setfloatalignment{b}
-\end{figure}
-\section{Arduino Uno Board}
-Among various Arduino boards available, the most generally used Arduino board is the “Arduino Uno”. We would be making use of Arduino Uno to develop various projects.\\
+  \subfloat[Arduino Due]{\includegraphics[width=2in]{Images/Intro_Arduino/ard_due.png}} \quad
+  \subfloat[Arduino Leonardo]{\includegraphics[width=2in]{Images/Intro_Arduino/ard_leonardo.jpg}}\quad
+  \subfloat[Arduino Uno R3]{\includegraphics[width=2in]{Images/Intro_Arduino/arduino_uno.png}}\\
+  \subfloat[Arduino Mega 2560]{\includegraphics[width=2in]{Images/Intro_Arduino/ard_mega.jpg}}\quad
+  \subfloat[Arduino Nano]{\includegraphics[width=2in]{Images/Intro_Arduino/ard_nano.jpg}}\quad
+  \subfloat[LillyPad Arduino]{\includegraphics[width=2in]{Images/Intro_Arduino/ard_lillypad.jpg}}
+  \caption{Arduino Boards}
+\end{figure*}
 
 \begin{figure}
     \centering
-    \includegraphics[width=4in]{Chapters/images/arduinor3.png}
-    \caption{Arduino Uno R3 Board}
-    \label{fig:my_label}
+    \includegraphics[width=4.3in]{Images/Intro_Arduino/arduino_uno_versions.png}
+    \caption[Arduino Uno version]{Arduino Uno versions. Notice the alignment and position of ATMega328 micro-controller}
+\end{figure}
+
+
+\newpage
+\section{Arduino Uno R3}
+    \subsection{On-board units}
     
-\end{figure}
-\subsection{On-board units}
-\begin{itemize}
-    \item ATmega328 micro controller : Heart of Arduino Uno R3. This micro controller unit executes instructions. Programs are stored inside this unit.
-    \item ATmega16U2 micro controller : Used to assist main micro controller. Placed near to USB port to decode USB information. Stands as a boot loader that write programs into main micro controller. The transmit LED (Tx LED) and receive (Rx LED) turns on whenever read or write operations are performed to ATmega328. 
-    \item 16Mhz : Act as heart beat of Arduino board. Serves as clock for timing various units.
-    \item Use type-B : Used to interface Arduino to computer. Arduino board can be programmed via USB. Serial communication with board and serial monitor can also be achieved.
-    \begin{marginfigure}
-     \hspace{-1in}\includegraphics[width=3in]{Chapters/images/ard_boarddesp.png}
-    \caption{Arduino Board Description}
-    \end{marginfigure} 
-    \item 12V DC input : The board can be powered via 12V DC adapter. The 12V is passed via capacitors to provide enough ampere and voltage across the board.
-    \item Voltage regulator : The digital circuits usually work at 5V. The 5V voltage regulator ensures that all the units gets proper voltage levels. If the board is successfully powered, the power LED glow brightly.
-    \item Reset Button : At time we might need to restart the board from the beginning. The reset button is used to reload the program from start. The reset can also be triggered inside the program.
-\end{itemize}
+    \begin{figure}
+        \centering
+        \includegraphics[width=4.3in]{Images/Intro_Arduino/uno_desp.png}
+        \caption{Arduino Uno R3 Pinout}
+    \end{figure}
+    
+    \begin{itemize}
+        \item ATmega328 micro controller \\
+        Heart of Arduino Uno R3. This micro controller unit executes instructions. Programs are stored inside this unit.
+        \item ATmega16U2 micro controller\\
+        Used to assist main micro controller. Placed near to USB port to decode USB information. Stands as a boot loader that write programs into main micro controller. The transmit LED (Tx LED) and receive (Rx LED) turns on whenever read or write operations are performed to ATmega328. 
+        \item 16Mhz\\
+        Act as heart beat of Arduino board. Serves as clock for timing various units.
+        \item Use type-B\\
+        Used to interface Arduino to computer. Arduino board can be programmed via USB. Serial communication with board and serial monitor can also be achieved.
+        \item 12V DC input\\
+        The board can be powered via 12V DC adapter. The 12V is passed via capacitors to provide enough ampere and voltage across the board.
+        \item Voltage regulator\\
+        The digital circuits usually work at 5V. The 5V voltage regulator ensures that all the units gets proper voltage levels. If the board is successfully powered, the power LED glow brightly.
+        \item Reset Button\\
+        At time we might need to restart the board from the beginning. The reset button is used to reload the program from start. The reset can also be triggered inside the program.
+    \end{itemize}
+    
+    \subsection{Micro controller : ATmega328}
+    \begin{figure}
+        \centering
+        \includegraphics[width=4.3in]{Images/Intro_Arduino/mega328_spec.png}
+        \caption{ATmega328 spec}
+    \end{figure}
 
-
-\section{Micro controller : ATmega328}
-\begin{figure}[!ht]
-    \centering
-    \vspace{5mm}
- \includegraphics[width=4in]{Chapters/images/ardtab.png}
-    \caption{}
-    \label{fig:my_label}
-    \setfloatalignment{b}
-\end{figure}
-
-\section{Pin Layout : Arduino Uno}
+\section{Pin Layout}
 \par Pins of Arduino can be broadly divided into two categories depending on their utility. For each pin, there is a marking on the board to denote the function of that pin. Pins are divided into:
 \begin{enumerate}
-    \item General Purpose Input Output pins ( total 20 pins ) \vspace{1.5mm} \\ 
+    \item General Purpose Input Output pins ( total 20 pins )\\ 
     The functions of these pins can be programmed as per user need. They can either act as input pins or output pins. Input pins are those pins which Arduino would be listening for voltage variations. Output pins are those pins where Arduino controls the output voltage. These pins can also be classified into two categories they are 
     \begin{itemize}
         \item Digital Pins
         \item Analog Pins
     \end{itemize}
-    \item Special Purpose pins (total 9 pins)    \vspace{1.5mm} \\
-    The functions of these pins are predetermined and cannot be changed. They are reserved for special purpose. They include VCC (5v and 3.3v) , Vin, GND, RESET, IOREF, AREF, ICSP header. \\
-    VCC pins provide a fixed output voltage, acting as a positive terminal of a cell. GND pin provide a fixed zero voltage. They act as the negative terminal of a cell. Any additional components that need to be interfaced with Arduino would surely be connected to GND pin. Vin pin is used to power up the Arduino. Depending on how the board is powered, Vin pin can also act as 5v VCC pin.\\
-    RESET pin have the function similar to RESET push button. They can cause the program to restart from the beginning. IOREF and AREF stands for Input-output reference and Analog reference pin. They stand as a reference point to calculate voltages at digital and Analog pins. ICSP header pins are place close to micro-controllers. In-circuit serial programming (ICSP) is the ability of a micro-controller to be programmed without disconnecting from the circuitry.
+    \item Special Purpose pins (total 9 pins)
+    \par The functions of these pins are predetermined and cannot be changed. They are reserved for special purpose. They include VCC (5v and 3.3v) , Vin, GND, RESET, IOREF, AREF, ICSP header.
+    
+    \par VCC pins provide a fixed output voltage, acting as a positive terminal of a cell. GND pin provide a fixed zero voltage. They act as the negative terminal of a cell. Any additional components that need to be interfaced with Arduino would surely be connected to GND pin. Vin pin is used to power up the Arduino. Depending on how the board is powered, Vin pin can also act as 5v VCC pin.
+    \par RESET pin have the function similar to RESET push button. They can cause the program to restart from the beginning. IOREF and AREF stands for Input-output reference and Analog reference pin. They stand as a reference point to calculate voltages at digital and Analog pins. ICSP header pins are place close to micro-controllers. In-circuit serial programming (ICSP) is the ability of a micro-controller to be programmed without disconnecting from the circuitry.
 \end{enumerate}
+
 \section{Methods to power up Arduino}
-\par There are mainly three ways to power up the board. The first method is to use UBS device to power up the device. Just connect USB port to computer or a power bank. In this method the Vin pin can act as a 5V output pin. Make sure you don’t draw much power so as the damage the port. The 12V DC jack should be kept free. The second method is the power up via 12V DC jack. This will cause the board to have a bit higher current to handle components connect to it. The Vin pin act as a constant 5V DC output pin. In this method the USB port should to kept free. To make serial communication, make use of pins 0,1. The third pin is to power 5V via $V_{in}$ pin. The 12V jack and USB must be kept free. In this method, the board is likely to run on lower amperes.
+There are mainly three ways to power up the board. 
+\par The first method is to use UBS cable to power up the device. Just connect USB port to computer or a power bank. In this method the Vin pin can act as a 5V output pin. Make sure you don’t draw much power so as the damage the port. The 12V DC jack should be kept free. 
+\par The second method is the power up via 12V DC jack. This will cause the board to have a bit higher current to handle components connect to it. The Vin pin act as a constant 5V DC output pin. In this method the USB port should to kept free. To make serial communication, make use of pins 0,1. 
+\par The third pin is to power 5V via Vin pin. The 12V jack and USB must be kept free. In this method, the board is likely to run on lower ampere.
+
 \section{Digital Pins}
 \par Digital pins are those pins that act on digital values. A positive 5V (above 2.5V) act as binary 1 or HIGH digital signal. A ground 0V (below 2.3V) act as binary 0 or LOW digital signal. Arduino being a digital system, all general purpose input-output pins can be used as digital pins. There are total of 20 pins that can be used for digital signals, ranging from pin 0 to pin13 and A0 to A5. To make use of digital signals we make use of functions like digitalRead() and digitalWrite().
-\begin{marginfigure}
- \vspace{-1.3in}
- \includegraphics[width=3in]{Chapters/images/graph.png}
-\end{marginfigure}
+
+\begin{figure}
+ \centering
+ \includegraphics[width=3.5in]{Images/Intro_Arduino/digital_graph.png}
+ \caption{Digital signals}
+\end{figure}
 
 \section{Analog Pins}
-The pins that support analog input are called analog pins. Analog signals are those signals that vary continuously. That is, they do not have a specific cutoff like digital signals. They can assume wide range of values. Temperature is an example of analog signals that vary continuously. Since Arduino is an digital circuit, the analog values needs to be converted to digital signals for the micro controller to understand. This function is performed by Analog to Digital Converter (ADC). ADC convert analog signal to 10bit digital value by sampling the signal and then mapping each sample to $2^{10}$ levels. There are a total of 6 pins in Arduino Uno that supports ADC, ranging from pins A0 to A5. To read analog value we make use of function analogRead().
+\par The pins that support analog input are called analog pins. Analog signals are those signals that vary continuously. That is, they do not have a specific cutoff like digital signals. They can assume wide range of values. Temperature is an example of analog signals that vary continuously. Since Arduino is an digital circuit, the analog signals needs to be converted to digital signals for the micro controller to understand. This function is performed by \ac{ADC}. \ac{ADC} convert analog signal to 10bit digital value by sampling the signal and then mapping each sample to $2^{10}$ levels. There are a total of 6 pins in Arduino Uno that supports \ac{ADC}, ranging from pins A0 to A5. To read analog value we make use of function analogRead().
+
 \begin{figure}
  \centering
- \includegraphics[width=3in]{Chapters/images/plot.png}
+ \includegraphics[width=3.5in]{Images/Intro_Arduino/analog_graph.png}
+ \caption{Analog signals}
 \end{figure}
 
-\section{Pulse Width Modulation (PWM)}
-PWM is the technique used to convert the digital signals to analog output results from Arduino. Arduino cannot directly product various voltage levels. Being a digital circuit, it can only product voltage levels 0V and 5V. To stimulate an analog effect, it create square waves. The square wave have two key components: frequency and duty cycle. Frequency stays constant of about 500 Hz whereas the duty cycle is manipulated. Duty cycle refers to the amount of time signal stays high in a given time cycle. If Duty cycle is 100\%, we would get an effect of 100\% of 5V = 5V. If Duty cycle is 50\%, we would get an effect of 50\% of 5V = 2.5V. \\
+\section{\ac{PWM}}
+\ac{PWM} is the technique used to convert the digital signals to analog output results from Arduino. Arduino cannot directly product various voltage levels. Being a digital circuit, it can only produce voltage levels 0V and 5V. To stimulate an analog effect, it creates square waves. The square wave have two key components: frequency and duty cycle. Frequency stays constant of about 500 Hz whereas the duty cycle is manipulated. Duty cycle refers to the amount of time signal stays high in a given time cycle. If Duty cycle is 100\%, we would get an effect of 100\% of 5V = 5V. If Duty cycle is 50\%, we would get an effect of 50\% of 5V = 2.5V. 
 
-Arduino Uno can support PWM on its 6 selected pins. They are pins 3, 5, 6, 9, 10 and 11. These pins have a tilde symbol ( ~ ) associated with their pin number on the board. The analog output function accepts 8 bit numbers, that are mapped to duty cycle. The 8 bit numbers can produce $2^8=256$ possible variations, spanning from zero to 255. The function analogWrite() is used to  produce analog output from Arduino at PWM pins.\\
+\par Arduino Uno can support \ac{PWM} on its 6 selected pins. They are pins 3, 5, 6, 9, 10 and 11. These pins have a tilde symbol ( \textasciitilde{} ) associated with their pin number on the board. The analog output function accepts 8 bit numbers, that are mapped to duty cycle. The 8 bit numbers can produce $2^8=256$ possible variations, spanning from zero to 255. The function analogWrite() is used to  produce analog output from Arduino at \ac{PWM} pins.
+
 \begin{figure}
- \centering
- \includegraphics[width=3.5in]{Chapters/images/pwm.png}
+ \centering 
+ \includegraphics[width=3.5in]{Images/Intro_Arduino/pwm.png}
+ \caption{Pulse width Modulation}
 \end{figure}
-\begin{figure}
+
+\begin{figure*}
  \centering
- \includegraphics[width=6.5in]{Chapters/images/ardtab1.png}
+ \includegraphics{Images/Intro_Arduino/cmp_adc_pwm.png}
  \caption{ADC v/s PWM}
- \setfloatalignment{b}
-\end{figure}
+\end{figure*}
+
+\newpage
+\begin{figure*}
+    \centering
+    \includegraphics[height=8.25in]{Images/Intro_Arduino/datasheet.png}
+    \caption{Arduino Uno Data-sheet}
+\end{figure*}
 
 
 
