@@ -93,18 +93,18 @@
 \end{table}
 
 \vspace{5mm}
-\par You might have heard of byte, kilo byte, megabyte etc. They denote range of collection of bits to represent an information. If “int” is 4 bytes long, it means it can have $24*8 = 232 = 4294967296$ possible values. See table \ref{fig:memory_size}
+\par You might have heard of byte, kilo byte, megabyte etc. They denote range of collection of bits to represent an information. If “int” is 4 bytes long, it means it can have $4*8 = 32bits = 4294967296$ possible values. See table \ref{fig:memory_size}
 
 \begin{table}
     \centering
     \renewcommand{\arraystretch}{1.5}
     \begin{tabular}{|l|l|l|}
     \hline
-        4 bit &  =1 nibble & 24 = 16                                     combinations \\ \hline
-        8 bit & = 1 byte & 28 = 256                                   combinations \\ \hline
-        210 byte & = 1 kilobyte & 218 = 262144                           combinations \\ \hline
-        210 kilobyte & = 1 megabyte & 228 = 268435456                     combinations \\ \hline
-        210 megabyte & = 1 gigabyte & 238 = 274877906944               combinations \\ \hline
+        4 bit &  =1 nibble & $2^4$ = 16                                     combinations \\ \hline
+        8 bit & = 1 byte & $2^8$ = 256                                   combinations \\ \hline
+        $2^{10}$ byte & = 1 kilobyte & $2^{18}$ = 262144                           combinations \\ \hline
+        $2^{10}$ kilobyte & = 1 megabyte & $2^{28}$ = 268435456                     combinations \\ \hline
+        $2^{10}$ megabyte & = 1 gigabyte & $2^{38}$ = 274877906944               combinations \\ \hline
     \end{tabular}
     \caption[Memory size]{Computer memory capacity}
     \label{fig:memory_size}
