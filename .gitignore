@@ -1,0 +1,7 @@
+#ignoring build files.
+*.aux
+*.log
+main.*
+
+#retain the main.tex file
+!main.tex
