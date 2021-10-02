@@ -38,10 +38,9 @@ The board have 4 pins, they are VCC, TRIG, ECHO, GND. To power up the sensor, 5V
 
 \section{Working of HC-SR04 sensor}
 
-
 \begin{figure}
     \centering
-    \subfloat[Transmission]{\includegraphics[width=2in]{Images/Ultrasonic/transmission.png}}\qquad
+    \subfloat[Transmission]{\includegraphics[width=2in]{Images/Ultrasonic/transmission.png}} \qquad
     \subfloat[Receiving]{\includegraphics[width=2in]{Images/Ultrasonic/receiving.png}}
     \caption[Ultrasonic - Working]{Ultrasonic waves bounces from surface}
     \vspace{5mm}
@@ -136,35 +135,36 @@ Let us now try to create a bot that can avoid the objects in front of it and kee
 \begin{marginfigure}
     \centering
     \includegraphics[width=\textwidth]{Images/Ultrasonic/nano_obj_avoider1.png}
-    \caption[Obstacle Avoider Bot]{Obstacle Avoider Bot using Arduino Nano}
+    \captionsetup{type=figure}
+    \caption[Obstacle Avoider Bot]{\raggedright Obstacle Avoider Bot using Arduino Nano}
 \end{marginfigure}
 
 \paragraph{ } We will be programming the bot to avoid the obstacle if it comes less than 10cm in front of the bot. The table \ref{tab: obj_avoider_motion} summarizes our flow. Here we have listed all sort of possible combinations with 2 IR sensors. Now lets implement them in our bot. Take a quick peek at the section \ref{section:bot_interface} where we have programmed a small bot. Lets add the additional ultrasonic sensors to them to complete our obstacle avoider.
 
-\begin{table}
+\begin{table*}
     \renewcommand{\arraystretch}{3.5}
     \centering
     \begin{tabular}{|c|c|c|c|c|}
     \hline
-        \textbf{Left Ultrasonic sensor} & \textbf{Right Ultrasonic sensor} & \textbf{Reaction of the bot} & \textbf{Scenario} \\ \hline
-        >10cm & >10cm & Forward motion & \begin{minipage}{.3\textwidth}
+        \textbf{Left Ultrasonic sensor} & \textbf{Right Ultrasonic sensor} & \textbf{Bot Motion} & \textbf{Scenario} \\ \hline
+        >10cm & >10cm & Forward & \begin{minipage}{.2\textwidth}
             \centering
-            \includegraphics[width=\linewidth, height=16mm]{Images/Ultrasonic/ultraSonic_objAvoider_straight.png}
+            \includegraphics[width=16mm, height=16mm]{Images/Ultrasonic/ultraSonic_objAvoider_straight.png}
             \vspace{1mm}
         \end{minipage} \\ \hline
-        >10cm & <=10cm & Turn left & \begin{minipage}{.3\textwidth}
+        >10cm & <=10cm & Turn left & \begin{minipage}{.2\textwidth}
             \centering
-            \includegraphics[width=\linewidth, height=16mm]{Images/Ultrasonic/ultraSonic_objAvoider_left.png.png}
+            \includegraphics[width=16mm, height=16mm]{Images/Ultrasonic/ultraSonic_objAvoider_left.png.png}
             \vspace{1mm}
         \end{minipage}  \\ \hline
-        <=10cm & >10cm & Turn right & \begin{minipage}{.3\textwidth}
+        <=10cm & >10cm & Turn right & \begin{minipage}{.2\textwidth}
             \centering
-            \includegraphics[width=\linewidth, height=16mm]{Images/Ultrasonic/ultraSonic_objAvoider_right.png}
+            \includegraphics[width=16mm, height=16mm]{Images/Ultrasonic/ultraSonic_objAvoider_right.png}
             \vspace{1mm}
         \end{minipage}  \\ \hline
-        <=10cm & <=10cm & Default:Rotate left & \begin{minipage}{.3\textwidth}
+        <=10cm & <=10cm & Default:Rotate left & \begin{minipage}{.2\textwidth}
             \centering
-            \includegraphics[width=\linewidth, height=16mm]{Images/Ultrasonic/ultraSonic_objAvoider_rotate.png}
+            \includegraphics[width=16mm, height=16mm]{Images/Ultrasonic/ultraSonic_objAvoider_rotate.png}
             \vspace{1mm}
         \end{minipage}  \\ \hline
     \end{tabular}
@@ -172,16 +172,16 @@ Let us now try to create a bot that can avoid the objects in front of it and kee
     \vspace{9mm}
     \caption{Obstacle Avoider Motion}
     \label{tab: obj_avoider_motion}
-\end{table}
+\end{table*}
+
+\paragraph{ } Lets details the connections figure \ref{fig:ckt_avoider} . First connect motors to motor driver. Now lets interface motor driver with Arduino Uno. Connect the pins input1, input2, input3, input4 of motor drive to Arduino pins 8, 7, 5 and 4 receptively. The left ultrasonic sensor (top) have its TRIG and ECHO pins connected to 12 and 11 pins of Arduino. Connect its VCC and GND to Arduino 5V and GND respectively. The right ultrasonic sensor (bottom) have its TRIG and ECHO pins connected to 3 and 2 pins of Arduino. Connect its VCC to 5V pin of motor driver and GND to GND pin of Arduino. Each ultrasonic sensor needs separate 5V line. If there are no other 5V source, then you can set any unused pin of Arduino to HIGH and extract 5V from that pin. Finally connect the 12V power line to 12V pin of motor driver and GND pin of motor driver to GND of Arduino and the negative terminal of the 12V source. Power the Arduino using USB cable. With that we have completed the circuits. Now lets build the code.
 
 \begin{figure}
-    \centering
-    \includegraphics{Images/Ultrasonic/obj_avoider_ckt.png}
-     \caption{Obstacle Avoider Circuit}
+	\centering
+	\includegraphics{Images/Ultrasonic/obj_avoider_ckt.png}
+	\caption{Obstacle Avoider Circuit}
 	\label{fig:ckt_avoider}
 \end{figure}
-
-\paragraph{ } Lets details the connections figure \ref{fig:ckt_avoider} . First connect motors to motor driver. Now lets interface motor driver with Arduino Uno. Connect the pins input1, input2, input3, input4 of motor drive to Arduino pins 8, 7, 5 and 4 receptively. The left ultrasonic sensor (top) have its TRIG and ECHO pins connected to 12 and 11 pins of Arduino. Connect its VCC and GND to Arduino 5V and GND respectively. The right ultrasonic sensor (bottom) have its TRIG and ECHO pins connected to 3 and 2 pins of Arduino. Connect its VCC to 5V pin of motor driver and GND to GND pin of Arduino. Each ultrasonic sensor needs separate 5V line. If there are no other 5V source, then you can set any unused pin of Arduino to HIGH and extract 5V from that pin. Finally connect the 12V power line to 12V pin of motor driver and GND pin of motor driver to GND of Arduino and the negative terminal of the 12V source. Power the Arduino using USB cable. With that we have completed the circuits. Now lets build the code. \\
 
 \begin{lstlisting}[style=CStyle]
 int m1 = 8, m2 = 7;             //left  motor pins
