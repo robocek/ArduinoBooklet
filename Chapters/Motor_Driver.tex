@@ -204,10 +204,10 @@ void loop(){
 \end{lstlisting}
 
 \begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{Images/Motor_Driver/speed_bot.png}
-    \caption{PWM supported wheel control}
-    \label{fig:speed_controlled}
+	\centering
+	\includegraphics[width=\textwidth]{Images/Motor_Driver/speed_bot.png}
+	\caption{PWM supported wheel control}
+	\label{fig:speed_controlled}  
 \end{figure}
 
 Keep in mind that \ac{PWM} pins are 8-bit support pins. The Maximum analog value we can send is 255 i.e., $ 2^8 - 1 $ (counting starts from zero). If \ac{PWM} value is set to 255, the motors will run at full capacity and would decrease as the value decreases. Do note that you are controlling the effective voltage sent to the motor and not the actual wheel rotation. To control the rotation of the wheel precisely, we would have to make use of stepper motors. Table \ref{fig:motor_volt} show the effective voltage felt at the motors. %\pagebreak

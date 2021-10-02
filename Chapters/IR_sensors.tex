@@ -15,7 +15,7 @@ Based on their range of wave lengths, \ac{IR} can be further classified into thr
 %------------------------------------------------
 
 \section{Types of \ac{IR} sensors}
-\par There are various \ac{IR} sensors available in the market. Based on their configuration, we can classify them as Active \ac{IR} sensors and \ac{PIR} sensor . Active \ac{IR} sensors are those sensor capable of both producing and sensing \ac{IR} signals while \ac{PIR} sensors mainly consist of detectors. Most of the motion detectors make use of \ac{PIR}. The \ac{PIR} detects the \ac{IR} signals caused due to the heat energy transmitted by any object. In this chapter we would focus on Active \ac{IR} sensor.
+There are various \ac{IR} sensors available in the market. Based on their configuration, we can classify them as Active \ac{IR} sensors and \ac{PIR} sensor . Active \ac{IR} sensors are those sensor capable of both producing and sensing \ac{IR} signals while \ac{PIR} sensors mainly consist of detectors. Most of the motion detectors make use of \ac{PIR}. The \ac{PIR} detects the \ac{IR} signals caused due to the heat energy transmitted by any object. In this chapter we would focus on Active \ac{IR} sensor.
 
 \section{Active \ac{IR} Sensors}
 \par An active \ac{IR} sensor consist of both \ac{IR} transmitter and \ac{IR} receiver. The transmitter transmits the \ac{IR} signals which would strike on an object and would bounce back to the receiver. However not all signals are bounced from the surface of the object. The bouncing of signals depends on the colour and material of the object. The dark colors have the ability to absorb more energy and transmit only a small portion of the received light. Light colors on the other hand, reflects most of the received light signals. It is this change of deflection of light that gives us the perception for colors. Since \ac{IR} sensor is only capable of detecting the presence/absence of \ac{IR} signals, they are employed to detect bright/dark surfaces. An \ac{IR} sensor is not capable of differentiating various colors.
@@ -142,6 +142,7 @@ void loop(){
 
 \begin{marginfigure}	
 	\includegraphics{Images/IR Sensor/IR_array.png}
+	\captionsetup{type=figure}
 	\caption{\ac{IR} Array}
 	\label{fig:ir_array}
 \end{marginfigure}
@@ -161,35 +162,36 @@ The main event of the line follower is to trace the line. In our sample environm
 
 \begin{marginfigure}
     \includegraphics{Images/IR Sensor/sensor_align.png}
-     \caption[Line Follower Sensor]{Line follower sensor alignment}
+    \captionsetup{type=figure}
+    \caption[Line Follower Sensor]{ \raggedright Line follower sensor alignment}
 \end{marginfigure}
 
 Table \ref{tab:line_follower_move} have listed all sort of possible combinations with 2 \ac{IR} sensors. Now lets implement them in our bot. Take a quick peek at the section \ref{section:bot_interface} where we have programmed a small bot. Lets add the additional \ac{IR} sensors to them to complete our line follower.
 
 \renewcommand{\arraystretch}{3.6}
-\begin{table}
+\begin{table*}
     \centering
     \begin{tabular}{|c|c|c|c|c|}
     \hline
-        \textbf{Path property} & \textbf{Left IR} & \textbf{Right IR} & \textbf{Reaction of the bot} & \textbf{Scenario} \\ \hline
-        Straight path & HIGH (white) & HIGH (white) & Forward motion & \begin{minipage}{.3\textwidth}
+        \textbf{Path property} & \textbf{Left IR} & \textbf{Right IR} & \textbf{Bot Motion} & \textbf{Scenario} \\ \hline
+        Straight path & HIGH (white) & HIGH (white) & Forward & \begin{minipage}{.3\textwidth}
             \centering
-            \includegraphics[width=\linewidth, height=20mm]{Images/IR Sensor/IR_linefollower_straight.png}
+            \includegraphics[width=20mm, height=20mm]{Images/IR Sensor/IR_linefollower_straight.png}
             \vspace{1mm}
         \end{minipage} \\ \hline
         Makes a right curve & HIGH (white) & LOW (black) & Turn right & \begin{minipage}{.3\textwidth}
             \centering
-            \includegraphics[width=\linewidth, height=20mm]{Images/IR Sensor/IR_linefollower_right.png}
+            \includegraphics[width=20mm, height=20mm]{Images/IR Sensor/IR_linefollower_right.png}
             \vspace{1mm}
         \end{minipage}  \\ \hline
         Makes a left curve & LOW (black) & HIGH (white) & Turn left & \begin{minipage}{.3\textwidth}
             \centering
-            \includegraphics[width=\linewidth, height=20mm]{Images/IR Sensor/IR_linefollower_left.png}
+            \includegraphics[width=20mm, height=20mm]{Images/IR Sensor/IR_linefollower_left.png}
             \vspace{1mm}
         \end{minipage}  \\ \hline
         Cross bar & LOW (black) & LOW (black) & Stop & \begin{minipage}{.3\textwidth}
             \centering
-            \includegraphics[width=\linewidth, height=20mm]{Images/IR Sensor/IR_linefollower_stop.png}
+            \includegraphics[width=20mm, height=20mm]{Images/IR Sensor/IR_linefollower_stop.png}
             \vspace{1mm}
         \end{minipage}  \\ \hline
     \end{tabular}
@@ -197,7 +199,7 @@ Table \ref{tab:line_follower_move} have listed all sort of possible combinations
     \vspace{9mm}
     \caption{Line follower movement}
     \label{tab:line_follower_move}
-\end{table}
+\end{table*}
 \renewcommand{\arraystretch}{1}
 
 \begin{figure}
